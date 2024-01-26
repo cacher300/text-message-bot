@@ -1,4 +1,5 @@
 import email, smtplib, ssl
+import os
 #from python import PROVIDERS
 
 # used for MMS
@@ -78,13 +79,15 @@ def main():
     message = "MMS TEST"
     provider = "T-Mobile"
 
-    sender_credentials = ("arronscream@gmail.com", "ythc hpyi lbmz xgvv")
+    password = os.getenv("passwd")
+
+    sender_credentials = ("arronscream@gmail.com",password )
 
     # SMS
     send_sms_via_email(number, message, provider, sender_credentials)
 
     # MMS
-    file_path = "C:\\Users\\Lucas.Pijl\\Downloads\\girl.png"
+    file_path = r"C:\Users\cache\OneDrive - University of Waterloo\Pictures\Saved Pictures\IMG_3313.jpeg"
 
     mime_maintype = "image"
     mime_subtype = "png"
